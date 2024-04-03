@@ -4,40 +4,44 @@ using UnityEngine;
 
 public class BasicMover : MonoBehaviour
 {
-    //for mouse position
-    private Vector3 mousePosition;
-    public float moveSpeed = 1f;
-
     public Transform target;
     public float speed = 3f;
-    //private RigidBody2D rb;
-
- 
+    public float rotateSpeed = 0.25f;
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        //rb = GetComponent<RigidBody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        MousePosition();
-        //get target
-        //rotate toward target
+        if (!target)
+        {
+            GetTarget();
+        }
+
+        if (target)
+        {
+            RotateTowardsTarget();
+        }
     }
 
     private void FixedUpdate()
-
     {
-        //move
+        rb.velocity = transform.right * speed;
     }
 
-    private void MousePosition()
+    private void GetTarget()
     {
-        /*//this is from other game where flashlightGO follows mouse position
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);*/
+        target = GameObject.FindGameObjectWithTag("Cursor").transform;
+    }
+    private void RotateTowardsTarget()
+    {
+        Vector2 targetDirection = target.position - transform.position;
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, q, rotateSpeed);
     }
 
 //toggle back and forth code
