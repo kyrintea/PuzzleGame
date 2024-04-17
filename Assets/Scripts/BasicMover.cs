@@ -30,7 +30,7 @@ public class BasicMover : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             isActive = !isActive;
-            print(isActive);
+            //print(isActive);
         }
     }
 

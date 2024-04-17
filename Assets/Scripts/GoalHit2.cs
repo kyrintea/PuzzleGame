@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoalHit1 : MonoBehaviour
+public class GoalHit2 : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ball"))
         {
             print("Goal hit!");
-            SceneManager.LoadScene("Level1.5");
+            SceneManager.LoadScene("Level1.6");
         }
     }
 }
