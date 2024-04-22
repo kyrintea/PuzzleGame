@@ -9,6 +9,7 @@ public class BasicMover : MonoBehaviour
     public float rotateSpeed = 0.25f;
     private Rigidbody2D rb;
     public bool isActive = true;
+    public bool isRotate = true;
 
     private void Start()
     {
@@ -30,7 +31,13 @@ public class BasicMover : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             isActive = !isActive;
-            //print(isActive);
+            //print("Move " + isActive);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            isRotate = !isRotate;
+            print("Rotate " + isRotate);
         }
     }
 
@@ -45,10 +52,22 @@ public class BasicMover : MonoBehaviour
     }
     private void RotateTowardsTarget()
     {
-        Vector2 targetDirection = target.position - transform.position;
-        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, q, rotateSpeed);
+        if (isRotate)
+        {
+            rb.freezeRotation = false;
+            Vector2 targetDirection = target.position - transform.position;
+            float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, q, rotateSpeed);
+        }
+
+        else
+        {
+            rb.freezeRotation = true;
+            //transform.localRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.y,transform.localRotation.z);
+        }
+        
+        
     }
 
     private void ActiveFollow()

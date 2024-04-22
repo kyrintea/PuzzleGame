@@ -10,7 +10,7 @@ public class GoalHit1 : MonoBehaviour
         if (collision.CompareTag("Ball"))
         {
             print("Goal hit!");
-            SceneManager.LoadScene("Level1.5");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

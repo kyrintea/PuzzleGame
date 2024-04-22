@@ -302,7 +302,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -452,6 +452,7 @@ MonoBehaviour:
   speed: 3
   rotateSpeed: 0.25
   isActive: 1
+  isRotate: 1
 --- !u!50 &404170463
 Rigidbody2D:
   serializedVersion: 4
@@ -1442,6 +1443,7 @@ GameObject:
   - component: {fileID: 1755067410}
   - component: {fileID: 1755067412}
   - component: {fileID: 1755067411}
+  - component: {fileID: 1755067413}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -1581,6 +1583,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1755067413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755067409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88b5e85b22380a4c81b8b836a5a1d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1989273873
 GameObject:
   m_ObjectHideFlags: 0

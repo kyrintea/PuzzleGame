@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1652936912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c24cc64d65b3142ba8704cf2891ec2, type: 3}
+  m_Script: {fileID: 11500000, guid: e88b5e85b22380a4c81b8b836a5a1d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1795377766
@@ -1771,6 +1771,7 @@ MonoBehaviour:
   speed: 3
   rotateSpeed: 0.025
   isActive: 1
+  isRotate: 1
 --- !u!50 &1795377769
 Rigidbody2D:
   serializedVersion: 4
