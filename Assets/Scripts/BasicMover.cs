@@ -14,6 +14,8 @@ public class BasicMover : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        isActive = false;
+        isRotate = false;
     }
 
     private void Update()
